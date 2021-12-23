@@ -14,4 +14,8 @@ def on_click(x, y, button, pressed):
 
 
 with Listener(on_click=on_click) as listener:
-    listener.join()
+    try:
+        print("Listening...")
+        listener.join()
+    except KeyboardInterrupt:
+        exit(0)
