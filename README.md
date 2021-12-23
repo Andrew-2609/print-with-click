@@ -7,6 +7,8 @@
 
 ---
 
+Run the project with ``python3 main.py`` and have fun!
+
 For now, just know that if you are using **Linux**, you have to run the following commands in order to make the
 **pyautogui** package work:
 
