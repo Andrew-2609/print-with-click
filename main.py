@@ -4,7 +4,9 @@ from pynput.mouse import Listener, Button
 
 from screenshot import Screenshooter
 
-my_screenshooter = Screenshooter(0)
+screenthots_path = input(
+    "Where do you want to save the screenshots from now on?\nType the absolute path (ex: '/home/bob': ")
+my_screenshooter = Screenshooter(0, screenthots_path)
 
 
 def on_click(x, y, button, pressed):
