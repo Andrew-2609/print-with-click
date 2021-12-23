@@ -2,8 +2,8 @@ import pyautogui
 
 
 class Screenshooter:
-    def __init__(self, count, screenshots_path):
-        self.count = count
+    def __init__(self, start_count_from, screenshots_path):
+        self.count = start_count_from
         self.screenshots_path = screenshots_path
 
     def take_screenshot(self):
