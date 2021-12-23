@@ -4,9 +4,23 @@ from pynput.mouse import Listener, Button
 
 from screenshot import Screenshooter
 
-screenthots_path = input(
-    "Where do you want to save the screenshots from now on?\nType the absolute path (ex: '/home/bob': ")
-my_screenshooter = Screenshooter(0, screenthots_path)
+print("\n" + "-" * 32)
+print("# Welcome!\n")
+
+defining_path = True
+while defining_path:
+    try:
+        screenthots_path = input(
+            "## Where do you want to save the screenshots from now on?\n > Type the absolute path (ex: '/home/bob': ")
+        my_screenshooter = Screenshooter(start_count_from=0, screenshots_path=screenthots_path)
+        my_screenshooter.take_screenshot()
+
+        defining_path = False
+    except FileNotFoundError:
+        print("### The given path was invalid. Please, try again!\n")
+    except KeyboardInterrupt:
+        print("\n\n# Exiting...\n")
+        exit(0)
 
 
 def on_click(x, y, button, pressed):
@@ -20,4 +34,5 @@ with Listener(on_click=on_click) as listener:
         print("Listening...")
         listener.join()
     except KeyboardInterrupt:
+        print("\n\n# Exiting...")
         exit(0)
